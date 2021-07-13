@@ -17,7 +17,7 @@ type (
 func main() {
 	app := iris.New()
 	app.Handle("GET", "/users", updateUser)
-	app.Listen(":80")
+	app.Listen(":8080")
 }
 
 func updateUser(ctx iris.Context) {
