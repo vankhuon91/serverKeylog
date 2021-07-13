@@ -21,12 +21,11 @@ func main() {
 }
 
 func updateUser(ctx iris.Context) {
-	id, _ := ctx.Params().GetUint64("id")
 
 	var req request
 
 	resp := response{
-		ID:      id,
+
 		Message: req.Firstname + " updated successfully",
 	}
 	ctx.JSON(resp)
