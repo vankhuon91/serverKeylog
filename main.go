@@ -8,19 +8,15 @@ import (
 
 type (
 	request struct {
-		Firstname string `json:"firstname"`
-		Lastname  string `json:"lastname"`
-	}
-
-	response struct {
-		ID      uint64 `json:"id"`
-		Message string `json:"message"`
+		MAC     string `json:"MAC"`
+		IP      string `json:"IP"`
+		Message string `json:"Message"`
 	}
 )
 
 func main() {
 	app := iris.New()
-	app.Handle("GET", "/users", updateUser)
+	app.Handle("POST", "/api/computers", addNewComputer)
 	var port_number = os.Getenv("PORT")
 	if port_number == "" {
 		port_number = "8080"
@@ -28,10 +24,9 @@ func main() {
 	app.Listen(":" + port_number)
 }
 
-func updateUser(ctx iris.Context) {
+func addNewComputer(ctx iris.Context) {
 	var req request
-	resp := response{
-		Message: req.Firstname + " updated successfully",
-	}
-	ctx.JSON(resp)
+	ctx.ReadJSON(&req)
+
+	ctx.JSON(req)
 }
