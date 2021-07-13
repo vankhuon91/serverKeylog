@@ -1,5 +1,5 @@
 module server_keylog
-
+// +heroku goVersion
 go 1.16
 
 require (
