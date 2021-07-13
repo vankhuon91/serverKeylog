@@ -1,6 +1,10 @@
 package main
 
-import "github.com/kataras/iris/v12"
+import (
+	"os"
+
+	"github.com/kataras/iris/v12"
+)
 
 type (
 	request struct {
@@ -17,7 +21,11 @@ type (
 func main() {
 	app := iris.New()
 	app.Handle("GET", "/users", updateUser)
-	app.Listen(":8080")
+	var port_number = os.Getenv("PORT")
+	if port_number == "" {
+		port_number = "8080"
+	}
+	app.Listen(":" + port_number)
 }
 
 func updateUser(ctx iris.Context) {
