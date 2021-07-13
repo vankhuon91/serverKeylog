@@ -17,15 +17,12 @@ type (
 func main() {
 	app := iris.New()
 	app.Handle("GET", "/users", updateUser)
-	app.Listen(":8080")
+	app.Listen(":443")
 }
 
 func updateUser(ctx iris.Context) {
-
 	var req request
-
 	resp := response{
-
 		Message: req.Firstname + " updated successfully",
 	}
 	ctx.JSON(resp)
