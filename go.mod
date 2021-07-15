@@ -11,6 +11,7 @@ require (
 	github.com/kataras/golog v0.1.7 // indirect
 	github.com/kataras/iris/v12 v12.1.8
 	github.com/klauspost/compress v1.13.1 // indirect
+	github.com/lib/pq v1.10.2 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.15 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
